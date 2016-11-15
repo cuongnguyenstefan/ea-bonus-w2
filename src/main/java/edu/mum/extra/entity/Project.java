@@ -1,7 +1,6 @@
 package edu.mum.extra.entity;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Date;
 import java.util.List;
 
@@ -85,19 +84,6 @@ public class Project {
 		this.endDate = endDate;
 	}
 
-	public List<Task> getTasks() {
-		return Collections.unmodifiableList(tasks);
-	}
-	
-	public void addTask(Task t) {
-		tasks.add(t);
-		t.setProject(this);
-	}
-	
-	public void setTasks(List<Task> tasks) {
-		this.tasks = tasks;
-	}
-
 	public Status getStatus() {
 		return status;
 	}
@@ -106,13 +92,16 @@ public class Project {
 		this.status = status;
 	}
 
-	public List<Picture> getPictures() {
-		return Collections.unmodifiableList(pictures);
+	public List<Task> getTasks() {
+		return tasks;
 	}
-	
-	public void addPicture(Picture p) {
-		pictures.add(p);
-		p.setProject(this);
+
+	public void setTasks(List<Task> tasks) {
+		this.tasks = tasks;
+	}
+
+	public List<Picture> getPictures() {
+		return pictures;
 	}
 
 	public void setPictures(List<Picture> pictures) {
@@ -120,16 +109,12 @@ public class Project {
 	}
 
 	public List<Beneficiary> getBeneficiaries() {
-		return Collections.unmodifiableList(beneficiaries);
-	}
-	
-	public void addBeneficiary(Beneficiary b) {
-		beneficiaries.add(b);
-		b.setProject(this);
+		return beneficiaries;
 	}
 
 	public void setBeneficiaries(List<Beneficiary> beneficiaries) {
 		this.beneficiaries = beneficiaries;
 	}
+
 
 }

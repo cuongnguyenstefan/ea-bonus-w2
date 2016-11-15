@@ -24,6 +24,8 @@ public class User {
 	
 	private String name;
 	
+	private String password;
+	
 	@ElementCollection
 	@Enumerated(EnumType.STRING)
 	private Set<Role> roles = new HashSet<Role>();
@@ -62,5 +64,19 @@ public class User {
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
 	}
+
+	public String getPassword() {
+		return password;
+	}
+
+	public void setPassword(String password) {
+		this.password = password;
+	}
 	
+	public Boolean hasRole(Role role) {
+		if (roles.contains(role)) {
+			return true;
+		}
+		return false;
+	}
 }
