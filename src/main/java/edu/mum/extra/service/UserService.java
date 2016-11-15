@@ -10,7 +10,7 @@ import edu.mum.extra.entity.User;
 
 @Service
 @Transactional
-public class LoginService {
+public class UserService {
 	@Autowired
 	private UserRepository userDao;
 	
@@ -21,5 +21,15 @@ public class LoginService {
 			return findOne;
 		}
 		return null;
+	}
+	
+	public void saveUser(User user) {
+		userDao.save(user);
+	}
+	
+	public User get(int id) {
+		User user = userDao.findOne(id);
+		Hibernate.initialize(user.getServices());
+		return user;
 	}
 }

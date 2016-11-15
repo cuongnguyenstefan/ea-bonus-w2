@@ -14,4 +14,8 @@ public interface ProjectRepository extends CrudRepository<Project, Integer>{
 	public List<Project> findByDesciptionLikeIgnoreCase(String keyword);
 	
 	public List<Project> findByLocation(String location);
+	
+	public List<Project> findByTasksResourcesResource(String resource);
+	
+	public List<Project> findDistinctByTasksVolunteerServicesUserUserId(Integer id);
 }

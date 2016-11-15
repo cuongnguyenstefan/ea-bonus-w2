@@ -8,6 +8,9 @@
 	</head>
 	<body>
 		<h1>Projects</h1>
+		<form action="../home">
+			<input type="submit" value="Home" />
+		</form>
 		<table>
 			<thead>
 				<tr>
@@ -40,20 +43,25 @@
 							</ul>
 						</td>
 						<td>
-							<%-- <ul>
+							<ul>
 								<c:forEach var="picture" items="${prj.pictures}">
 									<li>${picture.pictureId}</li>
 								</c:forEach>
-							</ul> --%>
+							</ul>
 						</td>
 						<td>
-							<%-- <ul>
+							<ul>
 								<c:forEach var="beneficiary" items="${prj.beneficiaries}">
 									<li>${beneficiary.beneficiaryId} - ${beneficiary.beneficiary}</li>
 								</c:forEach>
-							</ul> --%>
+							</ul>
 						</td>
-						<td></td>
+						<td>
+							<form action="../tasks">
+								<input type="hidden" name="id" value="${prj.projectId}" />
+								<input type="submit" value="Get Tasks" />
+							</form>
+						</td>
 					</tr>
 				</c:forEach>
 			</tbody>

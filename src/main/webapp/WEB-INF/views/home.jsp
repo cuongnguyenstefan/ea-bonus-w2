@@ -22,7 +22,7 @@
 			<tr>
 				<td></td>
 				<td>
-					<form action="projects">
+					<form action="projects/all">
 						<input type="submit" value="Get All" />
 					</form>
 				</td>
@@ -31,8 +31,13 @@
 				<td></td>
 				<td>
 					<form action="projects/status">
-						<input type="text" name="status" placeholder="Find By Status"/>
-						<input type="submit" value="Get All" />
+						Status: 
+						<select name="status">
+							<option value="PENDING">Pending</option>
+							<option value="STARTED">Started</option>
+							<option value="FINISH">Finish</option>
+						</select>
+						<input type="submit" value="Find Projects" />
 					</form>
 				</td>
 			</tr>

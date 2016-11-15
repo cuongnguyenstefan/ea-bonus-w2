@@ -17,33 +17,33 @@ import javax.persistence.TemporalType;
 
 @Entity
 public class Project {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
 	private Integer projectId;
-	
+
 	private String desciption;
-	
+
 	private String location;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date startDate;
-	
+
 	@Temporal(TemporalType.DATE)
 	private Date endDate;
-	
-	@OneToMany(mappedBy = "project", cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
+
+	@OneToMany(mappedBy = "project", cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE })
 	private List<Task> tasks = new ArrayList<Task>();
-	
+
 	@Enumerated(EnumType.STRING)
 	private Status status;
-	
-	@OneToMany(mappedBy = "project", cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
+
+	@OneToMany(mappedBy = "project", cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE })
 	private List<Picture> pictures = new ArrayList<Picture>();
-	
-	@OneToMany(mappedBy = "project", cascade = {CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE})
+
+	@OneToMany(mappedBy = "project", cascade = { CascadeType.MERGE, CascadeType.PERSIST, CascadeType.REMOVE })
 	private List<Beneficiary> beneficiaries = new ArrayList<Beneficiary>();
-	
+
 	public Integer getProjectId() {
 		return projectId;
 	}
@@ -116,5 +116,9 @@ public class Project {
 		this.beneficiaries = beneficiaries;
 	}
 
-
+	@Override
+	public boolean equals(Object arg0) {
+		Project p = (Project) arg0;
+		return this.getProjectId() == p.getProjectId();
+	}
 }
